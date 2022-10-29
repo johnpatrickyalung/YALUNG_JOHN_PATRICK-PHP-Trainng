@@ -1,4 +1,4 @@
 <?php
-$heading = 'Sign Up';
+$heading = 'Sign In';
 
 require_once  "views/signin.view.php";

@@ -36,10 +36,11 @@ $(document).ready(function () {
         e.preventDefault();
         // alert('s');
         let data = {
-            first_name : $('#first_name').val(),
-            last_name : $('#last_name').val(),
+            firstName : $('#firstName').val(),
+            lastName : $('#lastName').val(),
             email : $('#email').val(),
-            password :$('#password').val()
+            password :$('#password').val(),
+            passwordConfirm :$('#passwordConfirm').val()
         }
         
         $.ajax({
@@ -50,6 +51,8 @@ $(document).ready(function () {
             encode: true,
             success: function(data) { 
                 var personObject = JSON.parse(data);
+        
+            console.log(data);
             if( personObject.success == true) {
                 toastMixin.fire({
                     animation: true,
@@ -57,10 +60,15 @@ $(document).ready(function () {
                     });
                 setTimeout(function() {
                     location.reload();
+                    if(personObject.location){
+                        window.location.href = personObject.location;
+                      }
                 }, 2000);
+                
             }else {
                 // console.log(data['success'])
                 var personObject = JSON.parse(data);
+                console.log(data);
             //    console.log( personObject.errors.first_name);
                 toastMixin2.fire({
                     animation: true,

@@ -1,13 +1,11 @@
 <?php 
 require_once  '../../config/config.php';
-$fnameErr= $lnameErr = $emailErr = $passErr = $confirmErr = "";
-$fname =$lname = $email = $gender = $pass = $website = "";
 
 $errors = [];
 $data = [];
 
-if (empty($_POST['first_name'])) {
-    $errors['first_name'] = 'Name is required.';
+if (empty($_POST['firstName'])) {
+    $errors['firstName'] = 'Name is required.';
    
 }
 if (!empty($errors)) {
